@@ -1,4 +1,4 @@
-package WeatherTests;
+package weatherTests;
 
 import org.junit.Before;
 import org.junit.Test;
