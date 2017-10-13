@@ -15,9 +15,7 @@ public class CurrentWeatherReport   {
         this.temperature = temperature;
     }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
     public String getCountry() {
         return country;

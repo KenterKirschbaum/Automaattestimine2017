@@ -2,6 +2,7 @@ package weatherTests;
 
 import org.junit.Before;
 import org.junit.Test;
+import weatherRequest.WeatherRequest;
 
 public class ForecastWeatherDataTests   {
     private double longitudeOfTallinn;

@@ -1,27 +1,26 @@
 package weatherRequest;
 
+
 public class WeatherRequest {
+    private String city;
+    private String country;
+    private String format;
 
-    public class WeatherRequest {
-        private String city;
-        private String country;
-        private String format;
+    public WeatherRequest(String city, String country, String format) {
+        this.city = city;
+        this.country = country;
+        this.format = format;
+    }
 
-        public WeatherRequest(String city, String country, String format) {
-            this.city = city;
-            this.country = country;
-            this.format = format;
-        }
-
-        public String getCity() {
+    public String getCity() {
             return city;
         }
 
-        public String getCountry() {
+    public String getCountry() {
             return country;
         }
 
-        public String getFormat() {
+    public String getFormat() {
             return format;
         }
 

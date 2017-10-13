@@ -44,7 +44,5 @@ public class ForecastReport {
         return secondDay;
     }
 
-    public OneDayWeatherReport getThirdDay() {
-        return thirdDay;
-    }
+    public OneDayWeatherReport getThirdDay() { return thirdDay; }
 }

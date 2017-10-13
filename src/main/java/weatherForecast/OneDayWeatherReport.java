@@ -6,7 +6,7 @@ public class OneDayWeatherReport {
     private double maxTemperature;
 
 
-    public ForecastOneDayReport(double minTemperature, double maxTemperature) {
+    public OneDayWeatherReport(double minTemperature, double maxTemperature) {
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;
     }
