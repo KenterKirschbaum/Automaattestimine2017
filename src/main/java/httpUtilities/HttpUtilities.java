@@ -7,7 +7,7 @@ import java.net.URL;
 public class HttpUtilities {
 
     public static HttpURLConnection makeHttpURLRequest(String requestUrl) throws IOException {
-        URL url = new URL(requestUrl);
-        return (HttpURLConnection) url.openConnection();
+        URL connetcionUrl = new URL(requestUrl);
+        return (HttpURLConnection) connetcionUrl.openConnection();
     }
 }

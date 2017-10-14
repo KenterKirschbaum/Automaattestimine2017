@@ -4,12 +4,12 @@ package weatherRequest;
 public class WeatherRequest {
     private String city;
     private String country;
-    private String format;
+    private String metricFormat;
 
     public WeatherRequest(String city, String country, String format) {
         this.city = city;
         this.country = country;
-        this.format = format;
+        this.metricFormat = format;
     }
 
     public String getCity() {
@@ -20,8 +20,6 @@ public class WeatherRequest {
             return country;
         }
 
-    public String getFormat() {
-            return format;
-        }
+    public String getMetricFormat() { return metricFormat;}
 
 }

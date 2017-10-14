@@ -25,17 +25,17 @@ public class CurrentWeatherRepository {
                 .path("/data/2.5/weather")
                 .queryParam("q", request.getCity())
                 .queryParam("APPID", APIKey)
-                .queryParam("units", request.getFormat());
+                .queryParam("units", request.getMetricFormat());
 
-        URL url = null;
+        URL urlForCurrentWeather = null;
 
         try{
-            url = builder.build().toURL();
+            urlForCurrentWeather = builder.build().toURL();
         }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
+        catch (MalformedURLException urlException) {
+            urlException.printStackTrace();
         }
-        return url.toString();
+        return urlForCurrentWeather.toString();
     }
 
     public JSONObject getCurrentWeatherReport(WeatherRequest weatherRequest) throws IOException {
@@ -46,24 +46,28 @@ public class CurrentWeatherRepository {
 
         try {
             jsonObject = (JSONObject) jsonParser.parse(new InputStreamReader((InputStream) request.getContent()));
-        }   catch (IOException  | ParseException exception) {
-            exception.printStackTrace();
+        }   catch (IOException  | ParseException parseException) {
+            parseException.printStackTrace();
         }
         request.disconnect();
         return jsonObject;
     }
 
     public CurrentWeatherReport responseJsonDataToCurrentWeatherReport (WeatherRequest weatherRequest) throws IOException   {
+
         JSONObject weatherReportJsonFormat = getCurrentWeatherReport(weatherRequest);
         JSONObject systemInformation = (JSONObject) weatherReportJsonFormat.get("sys");
         JSONObject mainInformation = (JSONObject) weatherReportJsonFormat.get("main");
         JSONObject coordinates = (JSONObject) weatherReportJsonFormat.get("coord");
-        String city = (String) weatherReportJsonFormat.get("name");
-        String country = (String) systemInformation.get("country");
+
+        String cityName = (String) weatherReportJsonFormat.get("name");
+        String countryName = (String) systemInformation.get("country");
         double temprerature = (double) mainInformation.get("temp");
-        double longitude = (double) coordinates.get("lon");
-        double latitude = (double) coordinates.get("lat");
-        CurrentWeatherReport currentWeatherReport = new CurrentWeatherReport(city,country,temprerature,longitude,latitude);
+        double longitudeValue = (double) coordinates.get("lon");
+        double latitudeValue = (double) coordinates.get("lat");
+
+        CurrentWeatherReport currentWeatherReport = new CurrentWeatherReport(cityName,countryName,temprerature,
+                longitudeValue,latitudeValue);
         return currentWeatherReport;
     }
 

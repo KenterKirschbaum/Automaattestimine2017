@@ -1,10 +1,10 @@
 package weatherTests;
 
-import org.junit.Test;
 import org.junit.Before;
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+import org.junit.Test;
+import weatherRequest.WeatherRequest;
+
+import static org.junit.Assert.assertEquals;
 
 public class CurrentWeatherDataTests {
     private double longitudeOfTallinn;
@@ -14,7 +14,7 @@ public class CurrentWeatherDataTests {
 
     @Before
     public void initialObjectsData()    {
-        weatherDataRequest = new WeatherDataRequest();
+        weatherRequest = new WeatherRequest();
         longitudeOfTallinn = 0;
         latitudeOfTallinn = 0;
     }
@@ -38,6 +38,6 @@ public class CurrentWeatherDataTests {
 
     @Test
     public void testIfResponseHasTemperatureValue() {
-        assertNotEquals(null, currentWeatherData.getTemp());
+        assertNotEquals(null, currentWeatherData.getTemperature());
     }
 }
