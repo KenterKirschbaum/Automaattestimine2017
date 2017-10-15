@@ -1,6 +1,8 @@
 package currentWeather;
 
-import httpUtilities.HttpUtilities;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -9,8 +11,6 @@ import weatherRequest.WeatherRequest;
 import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -39,17 +39,22 @@ public class CurrentWeatherRepository {
     }
 
     public JSONObject getCurrentWeatherReport(WeatherRequest weatherRequest) throws IOException {
-        HttpURLConnection request = HttpUtilities.makeHttpURLRequest(buildCurrentWeatherURL(weatherRequest));
-        request.connect();
+        String connectionUrl = buildCurrentWeatherURL(weatherRequest);
+        org.apache.http.client.HttpClient client = HttpClientBuilder.create().build();
+        HttpGet httpGetrequest = new HttpGet(connectionUrl);
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = client.execute(httpGetrequest);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = null;
-
         try {
-            jsonObject = (JSONObject) jsonParser.parse(new InputStreamReader((InputStream) request.getContent()));
-        }   catch (IOException  | ParseException parseException) {
-            parseException.printStackTrace();
+            jsonObject = (JSONObject) jsonParser.parse(new InputStreamReader(httpResponse.getEntity().getContent(), "UTF-8"));
+        } catch (IOException | ParseException exception) {
+            exception.printStackTrace();
         }
-        request.disconnect();
         return jsonObject;
     }
 
