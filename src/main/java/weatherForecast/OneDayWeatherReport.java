@@ -2,20 +2,21 @@ package weatherForecast;
 
 
 public class OneDayWeatherReport {
-    private double minTemperature;
-    private double maxTemperature;
+    private double minTemperatureValue;
+    private double maxTemperatureValue;
 
 
     public OneDayWeatherReport(double minTemperature, double maxTemperature) {
-        this.minTemperature = minTemperature;
-        this.maxTemperature = maxTemperature;
-    }
-
-    public double getMaxTemperature() {
-        return maxTemperature;
+        this.minTemperatureValue = minTemperature;
+        this.maxTemperatureValue = maxTemperature;
     }
 
     public double getMinTemperature() {
-        return minTemperature;
+        return minTemperatureValue;
     }
+
+    public double getMaxTemperature() {
+        return maxTemperatureValue;
+    }
+
 }
