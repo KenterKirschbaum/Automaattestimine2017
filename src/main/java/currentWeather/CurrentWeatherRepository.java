@@ -67,7 +67,7 @@ public class CurrentWeatherRepository {
 
         String cityName = (String) weatherReportJsonFormat.get("name");
         String countryName = (String) systemInformation.get("country");
-        double temprerature = (double) mainInformation.get("temp");
+        long temprerature = (long) mainInformation.get("temp");
         double longitudeValue = (double) coordinates.get("lon");
         double latitudeValue = (double) coordinates.get("lat");
 

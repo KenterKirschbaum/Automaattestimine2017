@@ -19,14 +19,10 @@ public class CurrentWeatherDataTests {
     private CurrentWeatherRepository currentWeatherRepository;
 
     @Before
-    public void initialObjectsData()    {
+    public void initialObjectsData() throws IOException {
         weatherRequest = new WeatherRequest("Tallinn", "EE", "metric");
         currentWeatherRepository = new CurrentWeatherRepository();
-        try {
-            currentWeatherReport = currentWeatherRepository.responseJsonDataToCurrentWeatherReport(weatherRequest);
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        currentWeatherReport = currentWeatherRepository.responseJsonDataToCurrentWeatherReport(weatherRequest);
     }
 
     @Test

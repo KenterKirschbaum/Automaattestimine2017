@@ -39,7 +39,7 @@ public class ForecastRepository {
         return urlForForecastWeather.toString();
     }
 
-    public JSONObject getForecastWeatherReport(WeatherRequest weatherRequest) throws IOException {
+    public JSONObject getForecastWeatherReport(WeatherRequest weatherRequest){
         String connectionUrl = buildForecastWeatherURL(weatherRequest);
         org.apache.http.client.HttpClient client = HttpClientBuilder.create().build();
         HttpGet httpGetrequest = new HttpGet(connectionUrl);
@@ -59,14 +59,14 @@ public class ForecastRepository {
         return jsonObject;
     }
 
-    public ForecastReport responseJsonDataToForecastWeatherReport (WeatherRequest weatherRequest) throws  IOException   {
+    public ForecastReport responseJsonDataToForecastWeatherReport (WeatherRequest weatherRequest){
         JSONObject weatherReportJsonFormat = getForecastWeatherReport(weatherRequest);
-        JSONObject city = (JSONObject) weatherReportJsonFormat.get("city");
-        JSONObject coordinates = (JSONObject) city.get("coord");
-        double latitudeValue = (double) coordinates.get("lat");
-        double longitudeValue = (double) coordinates.get("lon");
-        String cityName = (String) city.get("name");
-        String countryName = (String) city.get("county");
+        JSONObject cityObject = (JSONObject) weatherReportJsonFormat.get("city");
+        JSONObject coordinatesObject = (JSONObject) cityObject.get("coord");
+        double latitudeValue = (double) coordinatesObject.get("lat");
+        double longitudeValue = (double) coordinatesObject.get("lon");
+        String cityName = (String) cityObject.get("name");
+        String countryName = (String) cityObject.get("county");
         OneDayWeatherReport firstDay = getOneDayReport(weatherReportJsonFormat, 1);
         OneDayWeatherReport secondDay = getOneDayReport(weatherReportJsonFormat, 2);
         OneDayWeatherReport thirdDay = getOneDayReport(weatherReportJsonFormat, 3);
