@@ -19,13 +19,13 @@ public class CurrentWeatherRepository {
 
     public static final String APIKey = "4ce9b7fca2966afda1256db99427f770";
 
-    public static String buildCurrentWeatherURL(WeatherRequest request){
+    public static String buildCurrentWeatherURL(WeatherRequest weatherRequest){
         UriBuilder builder = UriBuilder
                 .fromPath("http://api.openweathermap.org")
                 .path("/data/2.5/weather")
-                .queryParam("q", request.getCity())
+                .queryParam("q", weatherRequest.getCity())
                 .queryParam("APPID", APIKey)
-                .queryParam("units", request.getMetricFormat());
+                .queryParam("units", weatherRequest.getMetricFormat());
 
         URL urlForCurrentWeather = null;
 

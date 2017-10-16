@@ -20,13 +20,13 @@ public class ForecastRepository {
 
     public static final String APIKey = "4ce9b7fca2966afda1256db99427f770";
 
-    public static String buildForecastWeatherURL(WeatherRequest request){
+    public static String buildForecastWeatherURL(WeatherRequest weatherRequest){
         UriBuilder builder = UriBuilder
                 .fromPath("http://api.openweathermap.org")
-                .path("/data/2.5/weather")
-                .queryParam("q", request.getCity())
+                .path("/data/2.5/forecast")
+                .queryParam("q", weatherRequest.getCity() + "," + weatherRequest.getCountry())
                 .queryParam("APPID", APIKey)
-                .queryParam("units", request.getMetricFormat());
+                .queryParam("units", weatherRequest.getMetricFormat());
 
         URL urlForForecastWeather = null;
 
@@ -60,18 +60,19 @@ public class ForecastRepository {
     }
 
     public ForecastReport responseJsonDataToForecastWeatherReport (WeatherRequest weatherRequest){
+
         JSONObject weatherReportJsonFormat = getForecastWeatherReport(weatherRequest);
         JSONObject cityObject = (JSONObject) weatherReportJsonFormat.get("city");
         JSONObject coordinatesObject = (JSONObject) cityObject.get("coord");
         double latitudeValue = (double) coordinatesObject.get("lat");
         double longitudeValue = (double) coordinatesObject.get("lon");
         String cityName = (String) cityObject.get("name");
-        String countryName = (String) cityObject.get("county");
+        String countryCode = (String) cityObject.get("county");
         OneDayWeatherReport firstDay = getOneDayReport(weatherReportJsonFormat, 1);
         OneDayWeatherReport secondDay = getOneDayReport(weatherReportJsonFormat, 2);
         OneDayWeatherReport thirdDay = getOneDayReport(weatherReportJsonFormat, 3);
 
-        ForecastReport forecastReport = new ForecastReport(cityName, countryName, longitudeValue, latitudeValue, firstDay, secondDay, thirdDay);
+        ForecastReport forecastReport = new ForecastReport(cityName, countryCode, longitudeValue, latitudeValue, firstDay, secondDay, thirdDay);
         return forecastReport;
     }
 

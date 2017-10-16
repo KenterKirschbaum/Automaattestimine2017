@@ -27,53 +27,53 @@ public class ForecastWeatherDataTests   {
     }
 
     @Test
-    public void testIfResponseCityMatchesRequestCity() {
+    public void testIfResponseCityEqualsRequestCity() {
         assertEquals(weatherRequest.getCity(), forecastReport.getCity());
     }
 
     @Test
-    public void testIfResponseCountryMatchesRequeestCountry() {
+    public void testIfResponseCountryCodeEqualsRequeestCountryCode() {
         assertEquals(weatherRequest.getCountry(), forecastReport.getCountry());
     }
-
+    
     @Test
-    public void testIfResponseContainsCoordinates() {
+    public void testIfResponseHasCoordinates() {
         assertNotEquals(null, forecastReport.getLatitude());
         assertNotEquals(null, forecastReport.getLongitude());
     }
 
     @Test
-    public void testIfResponseContainsThreeDayForecast() {
+    public void testIfResponseHasThreeDayForecast() {
         assertNotEquals(null, forecastReport.getFirstDay());
         assertNotEquals(null, forecastReport.getSecondDay());
         assertNotEquals(null, forecastReport.getThirdDay());
     }
 
     @Test
-    public void testIfResponseForecastDayOneContainsMaxTemp() {
+    public void testIfResponseForecastDayOneHasMaxTemp() {
         assertNotEquals(null, forecastReport.getFirstDay().getMaxTemperature());
     }
 
     @Test
-    public void testIfResponseForecastDayOneContainsMinTemp() {
+    public void testIfResponseForecastDayOneHasMinTemp() {
         assertNotEquals(null, forecastReport.getFirstDay().getMinTemperature());
     }
 
     @Test
-    public void testIfResponseForecastDayTwoContainsMaxTemp() {
+    public void testIfResponseForecastDayTwoHasMaxTemp() {
         assertNotEquals(null, forecastReport.getSecondDay().getMaxTemperature());
     }
     @Test
-    public void testIfResponseForecastDayTwoContainsMinTemp() {
+    public void testIfResponseForecastDayTwoHasMinTemp() {
         assertNotEquals(null, forecastReport.getSecondDay().getMinTemperature());
     }
 
     @Test
-    public void testIfResponseForecastDayThreeContainsMaxTemp() {
+    public void testIfResponseForecastDayThreeHasMaxTemp() {
         assertNotEquals(null, forecastReport.getThirdDay().getMaxTemperature());
     }
     @Test
-    public void testIfResponseForecastDayThreeContainsMinTemp() {
+    public void testIfResponseForecastDayThreeHasMinTemp() {
         assertNotEquals(null, forecastReport.getThirdDay().getMinTemperature());
     }
 

@@ -32,12 +32,7 @@ public class CurrentWeatherDataTests {
     }
 
     @Test
-    public void testIfResponseCityMatchesRequestCity() {
-        assertEquals(weatherRequest.getCity(), currentWeatherReport.getCity());
-    }
-
-    @Test
-    public void testIfResponseCountryMatchesRequestCountry() {
+    public void testIfResponseCountryCodeMatchesRequestCountryCode() {
         assertEquals(weatherRequest.getCountry(), currentWeatherReport.getCountry());
     }
 
@@ -48,7 +43,6 @@ public class CurrentWeatherDataTests {
 
     @Test
     public void testIfResponseHasTemperatureValue() {
-
         assertNotEquals(null, currentWeatherReport.getTemperature());
     }
 
