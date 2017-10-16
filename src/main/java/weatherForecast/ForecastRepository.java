@@ -67,7 +67,7 @@ public class ForecastRepository {
         double latitudeValue = (double) coordinatesObject.get("lat");
         double longitudeValue = (double) coordinatesObject.get("lon");
         String cityName = (String) cityObject.get("name");
-        String countryCode = (String) cityObject.get("county");
+        String countryCode = (String) cityObject.get("country");
         OneDayWeatherReport firstDay = getOneDayReport(weatherReportJsonFormat, 1);
         OneDayWeatherReport secondDay = getOneDayReport(weatherReportJsonFormat, 2);
         OneDayWeatherReport thirdDay = getOneDayReport(weatherReportJsonFormat, 3);

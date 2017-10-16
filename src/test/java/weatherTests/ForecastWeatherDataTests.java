@@ -35,7 +35,7 @@ public class ForecastWeatherDataTests   {
     public void testIfResponseCountryCodeEqualsRequeestCountryCode() {
         assertEquals(weatherRequest.getCountry(), forecastReport.getCountry());
     }
-    
+
     @Test
     public void testIfResponseHasCoordinates() {
         assertNotEquals(null, forecastReport.getLatitude());
