@@ -75,7 +75,7 @@ public class ForecastRepository {
         return forecastReport;
     }
 
-    public OneDayWeatherReport getOneDayReport(JSONObject forecastObject, int day){ //pooleli
+    public OneDayWeatherReport getOneDayReport(JSONObject forecastObject, int day){
         int currentDayOfMonth = (new Timestamp(System.currentTimeMillis())).toLocalDateTime().getDayOfMonth();
         JSONArray forecast = (JSONArray) forecastObject.get("list");
         double latestMinimumTemperature = Integer.MAX_VALUE;
