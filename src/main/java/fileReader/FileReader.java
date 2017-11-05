@@ -27,7 +27,7 @@ public class FileReader {
 
     public static void main(String[] args) {
         FileReader fileReader = new FileReader();
-        String inputFilename = "input.txt";
+        String inputFilename = "inputFile.txt";
         System.out.println(fileReader.readInputDataFromFile(inputFilename));
     }
 }
