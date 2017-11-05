@@ -1,5 +1,7 @@
 package currentWeather;
 
+import fileReader.FileReader;
+import fileWriter.FileWriter;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -76,5 +78,14 @@ public class CurrentWeatherRepository {
         return currentWeatherReport;
     }
 
+    public void writeJsonResponseDataToFile(JSONObject jsonObject, String filename){
+        FileWriter fileWriter = new FileWriter();
+        fileWriter.writeJsonDataToFile(jsonObject,filename);
+    }
+
+    public WeatherRequest getWeatherRequestDataFromFile(String filename){
+        FileReader fileReader = new FileReader();
+        return fileReader.readInputDataFromFile(filename);
+    }
 
 }
