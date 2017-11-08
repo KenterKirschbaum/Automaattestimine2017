@@ -13,7 +13,8 @@ public class FileReader {
         JSONParser jsonParser = new JSONParser();
         WeatherRequest weatherRequest = null;
         try {
-            java.io.FileReader fileReader = new java.io.FileReader("C:/Users/kente_000/IdeaProjects/Automaattestimine2017/src/main/resources/inputFile.txt");            JSONObject inputFile = (JSONObject) jsonParser.parse(fileReader);
+            java.io.FileReader fileReader = new java.io.FileReader("C:/Users/kente_000/IdeaProjects/Automaattestimine2017/src/main/resources/inputFile.txt");
+            JSONObject inputFile = (JSONObject) jsonParser.parse(fileReader);
             String city = (String) inputFile.get("city");
             String countryCode = (String) inputFile.get("countryCode");
             String metricUnits = (String) inputFile.get("units");
