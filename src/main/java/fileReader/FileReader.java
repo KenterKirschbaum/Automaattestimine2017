@@ -13,8 +13,7 @@ public class FileReader {
         JSONParser jsonParser = new JSONParser();
         WeatherRequest weatherRequest = null;
         try {
-            java.io.FileReader fileReader = new java.io.FileReader(getClass().getClassLoader().getResource(inputFilename).getFile());
-            JSONObject inputFile = (JSONObject) jsonParser.parse(fileReader);
+            java.io.FileReader fileReader = new java.io.FileReader("C:/Users/kente_000/IdeaProjects/Automaattestimine2017/src/main/resources/inputFile.txt");            JSONObject inputFile = (JSONObject) jsonParser.parse(fileReader);
             String city = (String) inputFile.get("city");
             String countryCode = (String) inputFile.get("countryCode");
             String metricUnits = (String) inputFile.get("units");
@@ -27,7 +26,6 @@ public class FileReader {
 
     public static void main(String[] args) {
         FileReader fileReader = new FileReader();
-        String inputFilename = "inputFile.txt";
-        System.out.println(fileReader.readInputDataFromFile(inputFilename));
+        System.out.println(fileReader.readInputDataFromFile("C:/Users/kente_000/IdeaProjects/Automaattestimine2017/src/main/resources/inputFile.txt"));
     }
 }

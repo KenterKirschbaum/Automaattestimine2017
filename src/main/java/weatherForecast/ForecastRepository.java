@@ -105,9 +105,9 @@ public class ForecastRepository {
         return oneDayReport;
     }
 
-    public void writeJsonResponseDataToFile(JSONObject jsonObject, String filename){
+    public void writeJsonResponseDataToFile(JSONObject jsonObject){
         FileWriter fileWriter = new FileWriter();
-        fileWriter.writeJsonDataToFile(jsonObject,filename);
+        fileWriter.writeJsonDataToFile(jsonObject);
     }
 
     public WeatherRequest getWeatherRequestDataFromFile(String filename){

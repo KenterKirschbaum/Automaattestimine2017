@@ -1,17 +1,18 @@
 package fileWriter;
 
 import org.json.simple.JSONObject;
-
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 public class FileWriter {
 
-    public void writeJsonDataToFile(JSONObject jsonObject, String outoutFilename)   {
+    public static void writeJsonDataToFile(JSONObject jsonObject)   {
         try {
-            Files.write(Paths.get(getClass().getClassLoader().getResource(outoutFilename).getPath()), jsonObject.toString().getBytes(), StandardOpenOption.WRITE);
+            java.io.FileWriter fileWriter = new java.io.FileWriter("C:/Users/kente_000/IdeaProjects/Automaattestimine2017/src/main/resources/outputFile.txt");
+            fileWriter.write(jsonObject.toJSONString());
+            fileWriter.flush();
+        } catch (FileNotFoundException exception)   {
+            System.out.println(exception);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
@@ -19,9 +20,7 @@ public class FileWriter {
 
     public static void main(String[] args)  {
         JSONObject object = new JSONObject();
-        object.put(""); //SIIN HETKEL ERROR, PUUDULIK
-        String outoutFilename = "outputFile.txt";
-        FileWriter fileWriter = new FileWriter();
-        fileWriter.writeJsonDataToFile(object,outoutFilename);
+        object.put("cityName", "Tallinn");
+        FileWriter.writeJsonDataToFile(object);
     }
 }

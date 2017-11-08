@@ -22,4 +22,9 @@ public class WeatherRequest {
 
     public String getMetricFormat() { return metricFormat;}
 
+    @Override
+    public String toString()    {
+        return "WeatherRequest{" + "city='" + city + '\'' + ", country='" + country + '\'' + ", format='" + metricFormat + '\'' + '}';
+
+    }
 }

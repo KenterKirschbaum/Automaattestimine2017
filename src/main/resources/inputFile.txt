@@ -1,0 +1,5 @@
+{
+  "city": "Tallinn",
+  "countryCode": "EE",
+  "units": "metric"
+}
