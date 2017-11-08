@@ -1,7 +1,7 @@
 package httpUtilitiesTest;
 
 import currentWeather.CurrentWeatherRepository;
-import httpUtilities.HttpUtilities;
+import utilities.HttpUtilities;
 import org.junit.Before;
 import org.junit.Test;
 import weatherForecast.ForecastRepository;

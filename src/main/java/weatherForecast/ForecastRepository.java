@@ -1,7 +1,5 @@
 package weatherForecast;
 
-import fileReader.FileReader;
-import fileWriter.FileWriter;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -104,14 +102,19 @@ public class ForecastRepository {
         OneDayWeatherReport oneDayReport = new OneDayWeatherReport(latestMaximumTemperature,latestMinimumTemperature);
         return oneDayReport;
     }
-
+/*
     public void writeJsonResponseDataToFile(JSONObject jsonObject){
         FileWriter fileWriter = new FileWriter();
         fileWriter.writeJsonDataToFile(jsonObject);
     }
 
+    public WeatherRequest getWeatherRequestFromConsole() {
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        return consoleScanner.buildWeatherRequestFromConsoleInput();
+    }
+
     public WeatherRequest getWeatherRequestDataFromFile(String filename){
         FileReader fileReader = new FileReader();
         return fileReader.readInputDataFromFile(filename);
-    }
+    }*/
 }
