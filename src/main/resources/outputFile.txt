@@ -1,1 +1,1 @@
-{"cityName":"Tallinn"}
+{"cityName":"Tallinn", "countryCode":"EE", "metricUnits":"metric"}

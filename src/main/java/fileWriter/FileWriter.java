@@ -21,6 +21,8 @@ public class FileWriter {
     public static void main(String[] args)  {
         JSONObject object = new JSONObject();
         object.put("cityName", "Tallinn");
+        object.put("countryCode", "EE");
+        object.put("metricUnits", "metric");
         FileWriter.writeJsonDataToFile(object);
     }
 }

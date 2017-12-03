@@ -75,20 +75,4 @@ public class CurrentWeatherRepository {
                 longitudeValue,latitudeValue);
         return currentWeatherReport;
     }
-    /*
-    public void writeJsonResponseDataToFile(JSONObject jsonObject){
-        FileWriter fileWriter = new FileWriter();
-        fileWriter.writeJsonDataToFile(jsonObject);
-    }
-
-    public WeatherRequest getWeatherRequestFromConsole() {
-        ConsoleScanner consoleScanner = new ConsoleScanner();
-        return consoleScanner.buildWeatherRequestFromConsoleInput();
-    }
-
-    public WeatherRequest getWeatherRequestDataFromFile(String filename){
-        FileReader fileReader = new FileReader();
-        return fileReader.readInputDataFromFile(filename);
-    }
-    */
 }
