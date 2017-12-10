@@ -10,7 +10,7 @@ public class Constants {
                 case EE :
                     return "EE";
                 case US :
-                    return "US";
+                    return "UK";
             }
             return null;
         }
