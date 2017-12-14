@@ -1,0 +1,10 @@
+/consoleScanner/
+/currentWeather/
+/fileReader/
+/fileWriter/
+/httpUtilitiesTest/
+/utilities/
+/weatherController/
+/weatherForecast/
+/weatherRequest/
+/weatherTests/

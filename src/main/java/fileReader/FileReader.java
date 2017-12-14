@@ -1,25 +1,38 @@
 package fileReader;
 
-import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import weatherRequest.WeatherRequest;
 
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class FileReader {
 
-    public JSONArray readInputFromFile(String filename) {
-        JSONParser parser = new JSONParser();
-        JSONArray fileContent = null;
+    ArrayList<WeatherRequest> weatherRequestList = new ArrayList<WeatherRequest>();
+    WeatherRequest weatherRequest = new WeatherRequest(null, null, null);
 
+    public  WeatherRequest readInputDataFromInputFile ()   {
+
+        JSONParser jsonParser = new JSONParser();
         try {
-            java.io.FileReader fileReader = new java.io.FileReader("C:/Users/kente_000/IdeaProjects/Automaattestimine2017/src/main/resources/inputFile.txt");
-            fileContent = (JSONArray) parser.parse(fileReader);
-        } catch (IOException | ParseException exception) {
+            Object object = jsonParser.parse(new java.io.FileReader("C:/Users/kente_000/Desktop/Automaattestimine2017/src/main/resources/inputFile.txt"));
+
+            JSONObject jsonObject = (JSONObject) object;
+
+            String city = (String) jsonObject.get("cityName");
+            String country = (String) jsonObject.get("countryCode");
+            String format = (String) jsonObject.get("metricUnits");
+
+            weatherRequest.setCity(city);
+            weatherRequest.setCountry(country);
+            weatherRequest.setMetricFormat(format);
+
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
-
-        return fileContent;
+        return weatherRequest;
     }
+
+
 
 }

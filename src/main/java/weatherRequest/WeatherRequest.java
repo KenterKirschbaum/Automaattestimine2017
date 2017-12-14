@@ -22,6 +22,18 @@ public class WeatherRequest {
 
     public String getMetricFormat() { return metricFormat;}
 
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setMetricFormat(String metricFormat) {
+        this.metricFormat = metricFormat;
+    }
+
     @Override
     public String toString()    {
         return "WeatherRequest{" + "city='" + city + '\'' + ", country='" + country + '\'' + ", format='" + metricFormat + '\'' + '}';
