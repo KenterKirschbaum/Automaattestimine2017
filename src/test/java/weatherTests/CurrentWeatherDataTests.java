@@ -45,6 +45,20 @@ public class CurrentWeatherDataTests {
     public void testIfResponseHasTemperatureValue() {
         assertNotEquals(null, currentWeatherReport.getTemperature());
     }
+    
+    @Test
+    public void testIfCoordinatesAreValid() {
+        boolean latitudeIsValid = currentWeatherReport.getLatitude() <= 90 && currentWeatherReport.getLatitude() >= -90;
+        boolean longitudeIsValid = currentWeatherReport.getLongitude() <= 180 && currentWeatherReport.getLongitude() >= -180;
+        assertEquals(true, latitudeIsValid);
+        assertEquals(true, longitudeIsValid);
+    }
+    
+    @Test
+    public void testIfTemperatureIsValid() {
+        boolean temperatureIsValid = currentWeatherReport.getTemperature() > -100 && currentWeatherReport.getTemperature()< 100;
+        assertEquals(true, temperatureIsValid);
+    }
 
 
 }

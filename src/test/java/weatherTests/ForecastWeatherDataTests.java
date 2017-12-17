@@ -41,6 +41,14 @@ public class ForecastWeatherDataTests   {
         assertNotEquals(null, forecastReport.getLatitude());
         assertNotEquals(null, forecastReport.getLongitude());
     }
+    
+    @Test
+    public void testIfCoordinatesAreValid() {
+        boolean latitudeIsValid = forecastReport.getLatitude() <= 90 && forecastReport.getLatitude() >= -90;
+        boolean longitudeIsValid = forecastReport.getLongitude() <= 180 && forecastReport.getLongitude() >= -180;
+        assertEquals(true, latitudeIsValid);
+        assertEquals(true, longitudeIsValid);
+    }
 
     @Test
     public void testIfResponseHasThreeDayForecast() {
