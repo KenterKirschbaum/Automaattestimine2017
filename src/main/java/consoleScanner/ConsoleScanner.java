@@ -23,7 +23,7 @@ public class ConsoleScanner {
             }
         }
 
-        System.out.println("Enter 2 letter country code): ");
+        System.out.println("Enter 2 letter country code: ");
         while (true) {
             countryCode = scanner.nextLine();
             if (isValidCountryCode(countryCode)) {
@@ -32,17 +32,9 @@ public class ConsoleScanner {
                 System.out.println("Not a valid country code. Try again");
             }
         }
-        System.out.println("Imperial or metric? : ");
-        while (true) {
-            units = scanner.nextLine();
-            if (isValidUnit(units)) {
-                break;
-            } else {
-                System.out.println("Not a valid unit. Try again");
-            }
-        }
 
-        WeatherRequest weatherRequest = new WeatherRequest(city, countryCode, units);
+
+        WeatherRequest weatherRequest = new WeatherRequest(city, countryCode, "metric");
         return weatherRequest;
     }
 
@@ -57,15 +49,6 @@ public class ConsoleScanner {
     public boolean isValidCountryCode(String countryCode) {
         for (Constants.COUNTRYCODE code: Constants.COUNTRYCODE.values()) {
             if (code.toString().equals(countryCode)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isValidUnit(String units) {
-        for (Constants.UNIT unit: Constants.UNIT.values()) {
-            if (unit.toString().equals(units)) {
                 return true;
             }
         }

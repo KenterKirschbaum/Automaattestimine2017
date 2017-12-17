@@ -21,7 +21,7 @@ public class FileWriter {
                 ((BufferedWriter) writer).newLine();
                 writer.write("Current weather: " + currentWeather);
             } catch (IOException exception) {
-                System.out.println("Error ooccured");
+                System.out.println("Error ooccured while writing a output file.");
             } finally {
                 try {writer.close();} catch (Exception exception) {/*ignore*/}
             }

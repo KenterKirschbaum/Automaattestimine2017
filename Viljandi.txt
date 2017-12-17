@@ -1,4 +1,4 @@
 City: Viljandi
-Coordinates: Latitude: -1.0, Longitude: 25.59
-Minimum temp.: -4.24, Maximum temp. : -2.147483648E9
-Current weather: 58.36
+Coordinates: Latitude: 58.37, Longitude: 25.59
+Minimum temp.: -14.63, Maximum temp. : -2.147483648E9
+Current weather: 1.0

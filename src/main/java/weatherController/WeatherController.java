@@ -68,7 +68,7 @@ public class WeatherController {
             double minTempreture = Collections.min(minTempretures);
             double maxTempreture = Collections.min(maxTempretures);
 
-            fileWriter.writeData(city, latitude, longitude, minTempreture, maxTempreture, temprerature);
+            fileWriter.writeData(city, temprerature, longitude, minTempreture, maxTempreture, latitude);
 
             System.out.println("File writing was successful.");
 
@@ -115,7 +115,7 @@ public class WeatherController {
             double minTempreture = Collections.min(minTempretures);
             double maxTempreture = Collections.min(maxTempretures);
 
-            fileWriter.writeData(city, latitude, longitude, minTempreture, maxTempreture, temprerature);
+            fileWriter.writeData(city, temprerature, longitude, minTempreture, maxTempreture, latitude);
 
             System.out.println("File writing was successful.");
 
