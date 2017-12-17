@@ -1,0 +1,4 @@
+City: Test
+Coordinates: Latitude: 111.2, Longitude: 12.4
+Minimum temp.: 1.1, Maximum temp. : 1.2
+Current weather: 1.3
