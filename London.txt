@@ -1,4 +1,0 @@
-City: London
-Coordinates: Latitude: 51.51, Longitude: -0.13
-Minimum temp.: -3.27, Maximum temp. : -2.147483648E9
-Current weather: 4.0

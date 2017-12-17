@@ -1,4 +1,4 @@
 City: Tallinn
-Coordinates: Latitude: 59.44, Longitude: 24.75
-Minimum temp.: -3.06, Maximum temp. : -2.147483648E9
+Coordinates: Latitude: 59.44, Longitude: -2.147483648E9
+Minimum temp.: -3.06, Maximum temp. : 24.75
 Current weather: 1.0

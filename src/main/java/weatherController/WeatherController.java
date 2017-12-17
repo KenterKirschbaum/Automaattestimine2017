@@ -40,7 +40,7 @@ public class WeatherController {
             CurrentWeatherRepository currentWeatherRepository = new CurrentWeatherRepository();
             CurrentWeatherReport currentWeatherReport = currentWeatherRepository.responseJsonDataToCurrentWeatherReport(weatherRequest);
 
-            double temprerature = currentWeatherReport.getTemperature();
+            double temperature = currentWeatherReport.getTemperature();
             double latitude = currentWeatherReport.getLatitude();
             double longitude = currentWeatherReport.getLongitude();
             String city = currentWeatherReport.getCity();
@@ -68,9 +68,10 @@ public class WeatherController {
             double minTempreture = Collections.min(minTempretures);
             double maxTempreture = Collections.min(maxTempretures);
 
-            fileWriter.writeData(city, temprerature, longitude, minTempreture, maxTempreture, latitude);
+            fileWriter.writeData(city, temperature, maxTempreture, minTempreture, longitude, latitude);
 
             System.out.println("File writing was successful.");
+            
 
 
         }
@@ -87,7 +88,7 @@ public class WeatherController {
             CurrentWeatherRepository currentWeatherRepository = new CurrentWeatherRepository();
             CurrentWeatherReport currentWeatherReport = currentWeatherRepository.responseJsonDataToCurrentWeatherReport(weatherRequestObject);
 
-            double temprerature = currentWeatherReport.getTemperature();
+            double temperature = currentWeatherReport.getTemperature();
             double latitude = currentWeatherReport.getLatitude();
             double longitude = currentWeatherReport.getLongitude();
             String city = currentWeatherReport.getCity();
@@ -115,7 +116,7 @@ public class WeatherController {
             double minTempreture = Collections.min(minTempretures);
             double maxTempreture = Collections.min(maxTempretures);
 
-            fileWriter.writeData(city, temprerature, longitude, minTempreture, maxTempreture, latitude);
+            fileWriter.writeData(city, temperature, maxTempreture, minTempreture, longitude, latitude);
 
             System.out.println("File writing was successful.");
 
