@@ -57,7 +57,7 @@ public class CurrentWeatherRepository {
         }
         return jsonObject;
     }
-
+    
     public CurrentWeatherReport responseJsonDataToCurrentWeatherReport (WeatherRequest weatherRequest) throws IOException   {
 
         JSONObject weatherReportJsonFormat = getCurrentWeatherReport(weatherRequest);

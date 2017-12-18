@@ -14,11 +14,11 @@ public class FileReader {
     public  WeatherRequest readInputDataFromInputFile ()   {
 
         JSONParser jsonParser = new JSONParser();
+        
         try {
             Object object = jsonParser.parse(new java.io.FileReader("C:/Users/kente_000/Desktop/Automaattestimine2017/src/main/resources/inputFile.txt"));
 
             JSONObject jsonObject = (JSONObject) object;
-
             String city = (String) jsonObject.get("cityName");
             String country = (String) jsonObject.get("countryCode");
             String format = (String) jsonObject.get("metricUnits");

@@ -1,6 +1,8 @@
 package utilities;
 
 public class Constants {
+	
+	public static boolean mock = true;
 
     public enum COUNTRYCODE {
         EE, UK;
