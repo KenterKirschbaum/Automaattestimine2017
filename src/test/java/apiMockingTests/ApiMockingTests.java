@@ -16,8 +16,6 @@ import weatherRequest.WeatherRequest;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 
-
-
 public class ApiMockingTests {
 	
 	public static CurrentWeatherRepository repository;
@@ -32,7 +30,7 @@ public class ApiMockingTests {
 	}
 	
 	@Test
-    public void doesRequestedCityEqualsReportedCity() throws IOException {
+    public void testIfRequestedCityEqualsReportedCity() throws IOException {
         WeatherRequest weatherRequest = new WeatherRequest("Tallinn", "EE", "metic");
         if (Constants.mock) {
         	 when(repository.responseJsonDataToCurrentWeatherReport(weatherRequest))
@@ -45,7 +43,7 @@ public class ApiMockingTests {
     }
 	
 	@Test
-    public void doesRequestedCountryEqualsReportedCountry() throws IOException {
+    public void testIfRequestedCountryEqualsReportedCountry() throws IOException {
         WeatherRequest weatherRequest = new WeatherRequest("Tallinn", "EE", "metic");
         if (Constants.mock) {
         	 when(repository.responseJsonDataToCurrentWeatherReport(weatherRequest))

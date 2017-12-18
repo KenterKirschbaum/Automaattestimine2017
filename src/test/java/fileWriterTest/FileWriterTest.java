@@ -9,7 +9,7 @@ public class FileWriterTest {
 	private FileWriter fileWriter;
 	
 	@Test
-    public void doesWriterWriteToFile() {
+    public void TestIfWriterWritesToFile() {
 	FileWriter filewriter = new FileWriter();
 	filewriter.writeData("Test", 111.2, 12.4, 1.1, 1.2, 1.3);
 	}
