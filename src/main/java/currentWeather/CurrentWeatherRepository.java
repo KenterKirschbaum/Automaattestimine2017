@@ -71,8 +71,7 @@ public class CurrentWeatherRepository {
         double longitudeValue = (double) coordinates.get("lon");
         double latitudeValue = (double) coordinates.get("lat");
 
-        CurrentWeatherReport currentWeatherReport = new CurrentWeatherReport(cityName,countryName,temprerature,
-                longitudeValue,latitudeValue);
+        CurrentWeatherReport currentWeatherReport = new CurrentWeatherReport(cityName,countryName,temprerature, longitudeValue,latitudeValue);
         return currentWeatherReport;
     }
 }

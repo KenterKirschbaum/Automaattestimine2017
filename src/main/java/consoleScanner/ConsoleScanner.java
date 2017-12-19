@@ -52,7 +52,7 @@ public class ConsoleScanner {
                 return true;
             }
         }
-        return false;
+        return false;s
     }
 
     public static void main(String[] args) {

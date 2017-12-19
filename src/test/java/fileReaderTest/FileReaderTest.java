@@ -24,7 +24,7 @@ public class FileReaderTest {
         countryCode = "EE";
         units = "metric";
         fileContent = fileReader.readInputDataFromInputFile();
-        System.out.println(fileContent);
+        //System.out.println(fileContent); Works!
     }
 
     @Test

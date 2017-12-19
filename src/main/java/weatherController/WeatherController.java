@@ -21,7 +21,7 @@ public class WeatherController {
     public static void main(String[] args) throws IOException {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter C for console scanner, F for file reading.");
+        System.out.println("Enter 'C' for console scanner, 'F' for file reading.");
         String inputChoiceString = bufferedReader.readLine();
 
         FileWriter fileWriter = new FileWriter();
