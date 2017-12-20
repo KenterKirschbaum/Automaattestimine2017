@@ -45,16 +45,15 @@ public class WeatherController {
             double latitude = currentWeatherReport.getLatitude();
             double longitude = currentWeatherReport.getLongitude();
             String city = currentWeatherReport.getCity();
-            /*String country = currentWeatherReport.getCountry();*/ //Not used
 
-            double minTempDayOne = forecastReport.getFirstDay().getMaxTemperature();
-            double maxTempDayOne = forecastReport.getFirstDay().getMinTemperature();
+            double maxTempDayOne = forecastReport.getFirstDay().getMaxTemperature();
+            double minTempDayOne = forecastReport.getFirstDay().getMinTemperature();
 
-            double minTempDayTwo = forecastReport.getSecondDay().getMaxTemperature();
-            double maxTempDayTwo = forecastReport.getSecondDay().getMinTemperature();
+            double maxTempDayTwo = forecastReport.getSecondDay().getMaxTemperature();
+            double minTempDayTwo = forecastReport.getSecondDay().getMinTemperature();
 
-            double minTempDayThree = forecastReport.getThirdDay().getMaxTemperature();
-            double maxTempDayThree = forecastReport.getThirdDay().getMinTemperature();
+            double maxTempDayThree = forecastReport.getThirdDay().getMaxTemperature();
+            double minTempDayThree = forecastReport.getThirdDay().getMinTemperature();
 
             //Add min tempretures
             minTemperatures.add(minTempDayOne);
@@ -66,10 +65,10 @@ public class WeatherController {
             maxTemperatures.add(maxTempDayTwo);
             maxTemperatures.add(maxTempDayThree);
 
-            double minTempreture = Collections.min(minTemperatures);
-            double maxTempreture = Collections.min(maxTemperatures);
+            double minTemperature = Collections.min(minTemperatures);
+            double maxTemperature = Collections.max(maxTemperatures);
 
-            fileWriter.writeData(city, temperature, longitude, minTempreture, maxTempreture, latitude);
+            fileWriter.writeDataToFile(city, temperature, longitude, maxTemperature, minTemperature, latitude);
 
             System.out.println("File writing was successful.");
             
@@ -93,17 +92,16 @@ public class WeatherController {
             double latitude = currentWeatherReport.getLatitude();
             double longitude = currentWeatherReport.getLongitude();
             String city = currentWeatherReport.getCity();
-            /*String country = currentWeatherReport.getCountry();*/ //Not used
 
-            double minTempDayOne = forecastReport.getFirstDay().getMaxTemperature();
-            double maxTempDayOne = forecastReport.getFirstDay().getMinTemperature();
-
-            double minTempDayTwo = forecastReport.getSecondDay().getMaxTemperature();
-            double maxTempDayTwo = forecastReport.getSecondDay().getMinTemperature();
-
-            double minTempDayThree = forecastReport.getThirdDay().getMaxTemperature();
-            double maxTempDayThree = forecastReport.getThirdDay().getMinTemperature();
-
+            double maxTempDayOne = forecastReport.getFirstDay().getMaxTemperature();
+            double minTempDayOne = forecastReport.getFirstDay().getMinTemperature();
+            
+            double maxTempDayTwo = forecastReport.getSecondDay().getMaxTemperature();
+            double minTempDayTwo = forecastReport.getSecondDay().getMinTemperature();
+            
+            double maxTempDayThree = forecastReport.getThirdDay().getMaxTemperature();
+            double minTempDayThree = forecastReport.getThirdDay().getMinTemperature();
+            
             //Add min tempretures
             minTemperatures.add(minTempDayOne);
             minTemperatures.add(minTempDayTwo);
@@ -114,10 +112,10 @@ public class WeatherController {
             maxTemperatures.add(maxTempDayTwo);
             maxTemperatures.add(maxTempDayThree);
 
-            double minTempreture = Collections.min(minTemperatures);
-            double maxTempreture = Collections.min(maxTemperatures);
+            double minTemperature = Collections.min(minTemperatures);
+            double maxTemperature = Collections.max(maxTemperatures);
 
-            fileWriter.writeData(city, temperature, longitude, minTempreture, maxTempreture, latitude);
+            fileWriter.writeDataToFile(city, temperature, longitude, maxTemperature, minTemperature, latitude);
 
             System.out.println("File writing was successful.");
 

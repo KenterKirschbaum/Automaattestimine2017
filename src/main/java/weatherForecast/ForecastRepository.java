@@ -77,29 +77,29 @@ public class ForecastRepository {
     }
 
     public OneDayWeatherReport getOneDayReport(JSONObject forecastObject, int day){
-        int currentDayOfMonth = (new Timestamp(System.currentTimeMillis())).toLocalDateTime().getDayOfMonth();
+    	int dayOfMonthToday = (new Timestamp(System.currentTimeMillis())).toLocalDateTime().getDayOfMonth();
         JSONArray forecast = (JSONArray) forecastObject.get("list");
-        double latestMinimumTemperature = Integer.MAX_VALUE;
         double latestMaximumTemperature = Integer.MIN_VALUE;
-        for (int i = 0; i < forecast.size(); i++)   {
-            JSONObject singleForecastObject = (JSONObject) forecast.get(i);
-            Timestamp timestamp = new Timestamp((Long) singleForecastObject.get("dt") * 1000);
-            JSONObject mainObject = (JSONObject) singleForecastObject.get("main");
-            Object minimumTemperatureObject = mainObject.get("temp_min");
-            Object maximumTemperatureObject = mainObject.get("temp_max");
-            double minimumTemperatureValue = new Double(minimumTemperatureObject.toString());
-            double maximumTemperatureValue = new Double(maximumTemperatureObject.toString());
-            int daysFromToday = timestamp.toLocalDateTime().getDayOfMonth() - currentDayOfMonth;
-            if (daysFromToday == day)   {
-                if (minimumTemperatureValue < latestMinimumTemperature) {
-                    latestMinimumTemperature = minimumTemperatureValue;
+        double latestMinimumTemperature = Integer.MAX_VALUE;
+        for (int i = 0; i < forecast.size(); i++) {
+            JSONObject singleForecast = (JSONObject) forecast.get(i);
+            Timestamp timestamp = new Timestamp((Long) singleForecast.get("dt") * 1000);
+            JSONObject main = (JSONObject) singleForecast.get("main");
+            Object minTempObj = main.get("temp_min");
+            Object maxTempObj = main.get("temp_max");
+            double minTemp = new Double(minTempObj.toString());
+            double maxTemp = new Double(maxTempObj.toString());
+            int numberOfDaysFromToday = timestamp.toLocalDateTime().getDayOfMonth() - dayOfMonthToday;
+            if (numberOfDaysFromToday == day) {
+                if (minTemp < latestMinimumTemperature) {
+                	latestMinimumTemperature = minTemp;
                 }
-                if (maximumTemperatureValue < latestMaximumTemperature) {
-                    latestMaximumTemperature = maximumTemperatureValue;
+                if (maxTemp > latestMaximumTemperature) {
+                	latestMaximumTemperature = maxTemp;
                 }
             }
         }
-        OneDayWeatherReport oneDayReport = new OneDayWeatherReport(latestMaximumTemperature,latestMinimumTemperature);
+        OneDayWeatherReport oneDayReport = new OneDayWeatherReport(latestMaximumTemperature, latestMinimumTemperature);
         return oneDayReport;
     }
 }

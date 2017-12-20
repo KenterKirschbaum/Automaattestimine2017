@@ -11,6 +11,6 @@ public class FileWriterTest {
 	@Test
     public void TestIfWriterWritesToFile() {
 	FileWriter filewriter = new FileWriter();
-	filewriter.writeData("Test", 111.2, 12.4, 1.1, 1.2, 1.3);
+	filewriter.writeDataToFile("Test", 111.2, 12.4, 1.1, 1.2, 1.3);
 	}
 }

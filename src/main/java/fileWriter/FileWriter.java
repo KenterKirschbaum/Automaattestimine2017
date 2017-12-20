@@ -10,7 +10,7 @@ public class FileWriter {
 
     Writer writer = null;
 
-    public void writeData(String cityName, Double latitude, Double longitude, Double minTemp, Double maxTemp, Double currentWeather) {
+    public void writeDataToFile(String cityName, Double latitude, Double longitude, Double minTemp, Double maxTemp, Double currentWeather) {
             try {
                 writer = new BufferedWriter( new OutputStreamWriter( new FileOutputStream(cityName + ".txt"), "utf-8"));
                 writer.write("City: " + cityName);

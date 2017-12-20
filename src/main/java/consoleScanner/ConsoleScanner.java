@@ -11,7 +11,6 @@ public class ConsoleScanner {
         Scanner scanner = new Scanner(System.in);
         String city;
         String countryCode;
-        String units;
         System.out.println("Enter city name: ");
 
         while (true) {
@@ -19,7 +18,7 @@ public class ConsoleScanner {
             if (isValidCity(city)) {
                 break;
             } else {
-                System.out.println("Not a valid city. Try again");
+                System.out.println("Not a valid city. Try again!");
             }
         }
 
@@ -29,7 +28,7 @@ public class ConsoleScanner {
             if (isValidCountryCode(countryCode)) {
                 break;
             } else {
-                System.out.println("Not a valid country code. Try again");
+                System.out.println("Not a valid country code. Try again!");
             }
         }
 
@@ -38,6 +37,7 @@ public class ConsoleScanner {
         return weatherRequest;
     }
 
+    //Check if City value is made of character
     public boolean isValidCity(String city) {
         if (!city.isEmpty() && city.matches("[a-zA-Z]+")) {
             return true;
@@ -46,13 +46,14 @@ public class ConsoleScanner {
         }
     }
 
+    //Check if City value is UK or EE
     public boolean isValidCountryCode(String countryCode) {
         for (Constants.COUNTRYCODE code: Constants.COUNTRYCODE.values()) {
             if (code.toString().equals(countryCode)) {
                 return true;
             }
         }
-        return false;s
+        return false;
     }
 
     public static void main(String[] args) {

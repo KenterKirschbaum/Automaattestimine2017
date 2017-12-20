@@ -45,4 +45,15 @@ public class ForecastReport {
     }
 
     public OneDayWeatherReport getThirdDay() { return thirdDay; }
+
+	@Override
+	public String toString() {
+		return "ForecastReport [city=" + city + ", country=" + country + ", longitude=" + longitude + ", latitude="
+				+ latitude + ", firstDay=" + firstDay + ", secondDay=" + secondDay + ", thirdDay=" + thirdDay
+				+ ", getCity()=" + getCity() + ", getCountry()=" + getCountry() + ", getLongitude()=" + getLongitude()
+				+ ", getLatitude()=" + getLatitude() + ", getFirstDay()=" + getFirstDay() + ", getSecondDay()="
+				+ getSecondDay() + ", getThirdDay()=" + getThirdDay() + "]";
+	}
+    
+    
 }

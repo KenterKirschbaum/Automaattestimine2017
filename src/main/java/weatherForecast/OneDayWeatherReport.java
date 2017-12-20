@@ -19,4 +19,12 @@ public class OneDayWeatherReport {
         return maxTemperatureValue;
     }
 
+	@Override
+	public String toString() {
+		return "OneDayWeatherReport [minTemperatureValue=" + minTemperatureValue + ", maxTemperatureValue="
+				+ maxTemperatureValue + ", getMinTemperature()=" + getMinTemperature() + ", getMaxTemperature()="
+				+ getMaxTemperature() + "]";
+	}
+
+    
 }

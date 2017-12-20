@@ -1,0 +1,4 @@
+City: Parnu
+Coordinates: Latitude: 58.39, Longitude: 24.5
+Minimum temp.: -1.13, Maximum temp. : 2.73
+Current weather: 1.0
